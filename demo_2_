@@ -1,0 +1,28 @@
+import requests
+import json
+
+# Your TestRail URL (Change this to your actual TestRail URL)
+testrail_url = "https://calidad1234.testrail.io/"
+
+# API Endpoint to add a test case (Add your section ID here)
+api_endpoint = "index.php?/cases/add/2"  # Replace section_id
+url = f"{testrail_url}{api_endpoint}"
+
+# Your API credentials
+user = "jatin.bhardwaj@calidadinfotech.com"  # Your TestRail email
+api_key = "lT2tPbe4tLEqxbvwIH.j-jMqrsyLH561pnolUTICp"  # Your API Key
+
+# API Authentication
+auth = (user, api_key)
+
+# Test case details (Example test case)
+data = {
+    "title": "Verify login with valid credentials",
+    "type_id": 1,  # Functional Test
+    "priority_id": 2,  # Medium Priority
+    "estimate": "3m",  # Estimated time
+    "custom_steps_separated": [
+        {"content": "Enter valid username", "expected": "Username accepted"},
+        {"content": "Enter valid password", "expected": "Password accepted"},
+        {"content": "Click Login button", "expected": "User redirected to dashboard"}
+    ]
